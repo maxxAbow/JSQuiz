@@ -82,3 +82,27 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 		showResults(questions, quizContainer, resultsContainer);
 	}
 }
+
+
+//Timer
+let counter = 0;
+let timeout;
+let timer_on = 0;
+
+function timedCount() {
+  document.getElementById("time").value = counter;
+  counter++;
+  timeout = setTimeout(timedCount, 1000);
+}
+//When start button is clicked, start timer
+function startTimer() {
+  if (!timer_on) {
+    timer_on = 1;
+    timedCount();
+  }
+}
+//when submit button is clicked, end timer
+function stopTimer() {
+  clearTimeout(timeout);
+  timer_on = 0;
+}
