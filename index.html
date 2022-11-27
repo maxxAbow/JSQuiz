@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <input type="text" id="quiz">
@@ -14,7 +15,11 @@
         <button id="start" class="btn">Start Quiz</button>
         <br/>
         <button id="submit" class="btn">Submit</button>
-        <div id="sw-time">00:00:00</div>
+        <div id="timer">
+            <span id="hours">00:</span>
+            <span id="mins">00:</span>
+            <span id="seconds">00</span>  
+        </div>
     </div>
     <div id="results"></div>
     <footer id="footnote">
@@ -29,6 +34,6 @@
             The answers to the question are in good humor.
         </li>
     </footer>
-<script src="./second_script.js"></script>
+<script src="./third_script.js"></script>
 </body>
 </html>

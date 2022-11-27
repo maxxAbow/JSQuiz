@@ -23,62 +23,64 @@
 //   timer_on = 0;
 // });
 
+var startBtn = document.getElementById("start");
+var submitBtn = document.getElementById("sumbit");
+var stopwatch = {
+    // (A) PROPERTIES
+    time : null,
+    reset : null,
+    go : null,
+    timer : null,
+    now : 0,
+  };
 
-// var stopwatch = {
-//     // (A) PROPERTIES
-//     time : null,
-//     reset : null,
-//     go : null,
-//     timer : null,
-//     now : 0,
-//   };
+// (B) INITIALIZE
+init : () => {
+    // (B1) GET HTML ELEMENTS
+    stopwatch.time = document.getElementById("sw-time");
+    stopwatch.reset = document.getElementById("submit");
+    stopwatch.go = document.getElementById("start");
+   
+  window.addEventListener("load", stopwatch.init);
+};
+  // (C) START!
+function start() {
+    stopwatch.timer = setInterval(stopwatch.tick, 1000);
+  };
+   
+  // (D) STOP
+  function stop() {
+    clearInterval(stopwatch.timer);
+    stopwatch.timer = null;
+  };
+// (E) TIMER ACTION
+tick : () => {
+    // (E1) CALCULATE HOURS, MINS, SECONDS
+    stopwatch.now++;
+    let hours = 0, mins = 0, secs = 0,
+    remain = stopwatch.now;
+    hours = Math.floor(remain / 3600);
+    remain -= hours * 3600;
+    mins = Math.floor(remain / 60);
+    remain -= mins * 60;
+    secs = remain;
+   
+    // (E2) UPDATE THE DISPLAY TIMER
+    if (hours<10) { hours = "0" + hours; }
+    if (mins<10) { mins = "0" + mins; }
+    if (secs<10) { secs = "0" + secs; }
+    stopwatch.time.innerHTML = hours + ":" + mins + ":" + secs;
+  };
 
-// // (B) INITIALIZE
-// init : () => {
-//     // (B1) GET HTML ELEMENTS
-//     stopwatch.time = document.getElementById("sw-time");
-//     stopwatch.reset = document.getElementById("submit");
-//     stopwatch.go = document.getElementById("start");
-   
-//   window.addEventListener("load", stopwatch.init);
-// };
-//   // (C) START!
-// start : () => {
-//     stopwatch.timer = setInterval(stopwatch.tick, 1000);
-//     stopwatch.go.onclick = stopwatch.stop;
-//   };
-   
-//   // (D) STOP
-//   stop : () => {
-//     clearInterval(stopwatch.timer);
-//     stopwatch.timer = null;
-//     stopwatch.go.onclick = stopwatch.start;
-//   };
-// // (E) TIMER ACTION
-// tick : () => {
-//     // (E1) CALCULATE HOURS, MINS, SECONDS
-//     stopwatch.now++;
-//     let hours = 0, mins = 0, secs = 0,
-//     remain = sw.now;
-//     hours = Math.floor(remain / 3600);
-//     remain -= hours * 3600;
-//     mins = Math.floor(remain / 60);
-//     remain -= mins * 60;
-//     secs = remain;
-   
-//     // (E2) UPDATE THE DISPLAY TIMER
-//     if (hours<10) { hours = "0" + hours; }
-//     if (mins<10) { mins = "0" + mins; }
-//     if (secs<10) { secs = "0" + secs; }
-//     stopwatch.time.innerHTML = hours + ":" + mins + ":" + secs;
-//   };
+// (F) RESET
+reset : () => {
+    if (stopwatch.timer != null) { stopwatch.stop(); }
+    stopwatch.now = -1;
+    stopwatch.tick();
+};
 
-// // (F) RESET
-// reset : () => {
-//     if (stopwatch.timer != null) { stopwatch.stop(); }
-//     stopwatch.now = -1;
-//     stopwatch.tick();
-// };
+startBtn.addEventListener('click',start());
+submitBtn.addEventListener('click',stop());
 
 
 
