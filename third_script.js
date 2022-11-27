@@ -1,3 +1,4 @@
+//STOPWATCH
 var hours =0;
 var mins =0;
 var seconds =0;
@@ -37,4 +38,35 @@ function startTimer(){
     
       startTimer();
   },1000);
-}
+};
+
+
+//Questions
+var myQuestions = [
+    {
+        question: "What is the answer?",
+        answers: {
+            a: 'Yes',
+            b: 'No',
+            c: 'Maybe',
+            d: 'Who cares'
+        },
+        correctAnswer: 'd'
+    },
+    {
+        question: "Which came first?",
+        answers: {
+            a: 'Chicken',
+            b: 'Egg',
+            c: 'Lizard',
+            d: 'Road'
+        },
+        correctAnswer: 'c'
+    }
+    
+    ];
+    
+//Variables
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
