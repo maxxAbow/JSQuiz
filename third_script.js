@@ -41,32 +41,18 @@ function startTimer(){
 };
 
 
-//Questions
-var myQuestions = [
-    {
-        question: "What is the answer?",
-        answers: {
-            a: 'Yes',
-            b: 'No',
-            c: 'Maybe',
-            d: 'Who cares'
-        },
-        correctAnswer: 'd'
-    },
-    {
-        question: "Which came first?",
-        answers: {
-            a: 'Chicken',
-            b: 'Egg',
-            c: 'Lizard',
-            d: 'Road'
-        },
-        correctAnswer: 'c'
-    }
-    
-    ];
+
     
 //Variables
-var quizContainer = document.getElementById('quiz');
-var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
+var i = getElementById('question');
+var answer = event.target.getAttribute('data-answer');
+var score = 0;
+
+if (answer = 'true') {
+  score++,
+  i++
+}
+else {
+  i++
+};
